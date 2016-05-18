@@ -1,0 +1,39 @@
+<section class="container">
+  <section>
+    <div class="page-header">
+      <h1>Listings</h1>
+    </div>
+    <div class="list-group">
+      <a data-ng-repeat="listing in vm.listings"
+         data-ui-sref="listings.view({ listingId: listing._id })"
+         class="list-group-item">
+        <small class="list-group-item-text">
+          Posted on
+          <span data-ng-bind="listing.created | date:'mediumDate'"></span>
+          by
+          <span data-ng-if="listing.user" data-ng-bind="listing.user.displayName"></span>
+          <span data-ng-if="!listing.user">Deleted User</span>
+        </small>
+        <h4 class="list-group-item-heading" data-ng-bind="listing.name"></h4>
+        <p class="list-group-item-heading" data-ng-bind="listing.spacetype"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.detailsofspace"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.location"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.targetedcustomers"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.customerdetails"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.agegroup"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.targetedgender"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.targetedniche"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.targetedmarket"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.reach"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.pricing"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.spaceavailability"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.movablespace"></p>
+        <p class="list-group-item-heading" data-ng-bind="listing.distanceitcovers"></p>
+
+      </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-if="vm.listings.$resolved && !vm.listings.length">
+      No Listings yet, why don't you <a data-ui-sref="listings.create">create one</a>?
+    </div>
+  </section>
+</section>  

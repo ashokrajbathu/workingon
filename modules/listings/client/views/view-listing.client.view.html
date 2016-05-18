@@ -1,0 +1,61 @@
+<section class="container">
+<section>
+  <div class="page-header">
+    <h1 data-ng-bind="vm.listing.name"></h1>
+
+    <div>
+      <a class="btn btn-primary"
+       data-ui-sref="listings.bookit({ listingId: vm.listing._id })">
+      <i class="glyphicon glyphicon-edit">Book it</i>
+    </a>
+    </div>
+    <p class="list-group-item-heading" data-ng-bind="vm.listing.spacetype"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.detailsofspace"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.location"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.targetedcustomers"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.customerdetails"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.agegroup"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.targetedgender"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.targetedniche"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.targetedmarket"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.reach"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.pricing"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.spaceavailability"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.movablespace"></p>
+        <p class="list-group-item-heading" data-ng-bind="vm.listing.distanceitcovers"></p>
+        <div class="form-group text-center" >
+          <img ng-src="{{vm.listing.listingImageURL}}" alt="sorry" class="img-thumbnail user-profile-picture">
+        </div>
+  </div>
+  <div class="pull-right"
+       data-ng-show="vm.listing.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       data-ui-sref="listings.edit({ listingId: vm.listing._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" data-ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+    <div ng-show="vm.listing.isCurrentUserOwner">
+      <a class="btn btn-primary"
+       data-ui-sref="listings.addphotos({ listingId: vm.listing._id })">
+      <i class="glyphicon glyphicon-edit">Add images</i>
+    </a>
+    </div>
+    
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span data-ng-bind="vm.listing.created | date:'mediumDate'"></span>
+      by
+      <span data-ng-if="vm.listing.user"
+            data-ng-bind="vm.listing.user.displayName"></span>
+      <span data-ng-if="!vm.listing.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" data-ng-bind="vm.listing.content"></p>
+
+</section>
+</section>
+
